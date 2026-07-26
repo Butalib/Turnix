@@ -1,0 +1,60 @@
+body{
+    box-sizing: border-box;
+}
+//                     sidenav style ( take this part only)
+/* .dashboard{
+    
+} */
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 100vh;
+    /* background-color: aqua; */
+    align-items: center;
+}
+.logo{
+   width: 200px;
+   margin-left: 5px;
+   /* background-color: brown; */
+}
+.logo img{
+   width: 160px;
+}
+.slidenav-bt img{
+   width: 30px;
+   height: 30px;
+   margin-left: 10px;
+   
+}
+.slidenav-bt{
+    width: 200px;
+    /* background-color: blueviolet; */
+}
+.slidenav-bt button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 180px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 15px;
+    border: none;
+}
+.slidenav-bt p{
+    margin-top: 12px;
+}
+.profile-bt{
+    margin-top: 300px;
+}
+.profile-bt button{
+    height: 60px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.info p{
+    margin: 0;
+}
+//                    end of sidenav style ( take this part only)
