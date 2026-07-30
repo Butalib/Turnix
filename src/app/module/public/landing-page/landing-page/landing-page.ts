@@ -28,10 +28,7 @@ export class LandingPage {
   }
 
   onSubmit() {
-    if (!this.bookingData.branch || !this.bookingData.service || !this.bookingData.fullName || !this.bookingData.phone) {
-      this.toastr.warning('Please fill in all required fields.', 'Missing Data');
-      return; 
-    }
+
 
     this.toastr.success('You joined the queue successfully!', 'Success');
     this.router.navigate(['/queue']);
