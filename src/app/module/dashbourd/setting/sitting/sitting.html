@@ -1,0 +1,60 @@
+<div class="settings-container p-4">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-1">Settings</h2>
+    <p class="text-muted">Configure queue and system preferences.</p>
+  </div>
+
+  <!-- Settings Card -->
+  <div class="card shadow-sm p-4">
+    
+    <div class="mb-4">
+      <h4 class="fw-bold mb-1">Queue Settings</h4>
+      <p class="text-muted small">Configure default behaviors for the queue management system.</p>
+    </div>
+
+    <!-- خط فاصل زي الديزاين -->
+    <hr class="text-muted mb-4">
+
+    <!-- Inputs Row -->
+    <div class="row align-items-end mb-4">
+      
+      <!-- Queue Name (Disabled) -->
+      <div class="col-md-6 mb-3 mb-md-0">
+        <label class="form-label fw-medium text-dark">Queue Name</label>
+        <!-- بنحط [disabled]="true" أو بنكتب disabled بس عشان اليوزر ميقدرش يغيرها -->
+        <input 
+          type="text" 
+          class="form-control bg-light text-muted" 
+          [value]="systemSettings.queueName" 
+          disabled>
+      </div>
+
+      <!-- Default Service Time (With 'Minutes' suffix) -->
+      <div class="col-md-6">
+        <label class="form-label fw-medium text-dark">Default Service Time</label>
+        <!-- هنا بنستخدم input-group عشان نلزق كلمة Minutes جوه الحقل -->
+        <div class="input-group">
+          <input 
+            type="number" 
+            class="form-control" 
+            [(ngModel)]="systemSettings.defaultServiceTime">
+          <span class="input-group-text bg-white text-muted">Minutes</span>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="text-muted mb-4">
+
+    <!-- Save Button -->
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary px-4 py-2" (click)="saveChanges()">
+        Save Changes
+      </button>
+    </div>
+
+  </div>
+
+</div>
