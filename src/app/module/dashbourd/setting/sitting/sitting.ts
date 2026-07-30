@@ -1,6 +1,7 @@
-import { Component  } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,6 +11,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './sitting.scss',
 })
 export class Sitting {
+  private toastr = inject(ToastrService);
+
   systemSettings = {
     queueName: 'Main Reception',
     defaultServiceTime: 15
@@ -17,7 +20,7 @@ export class Sitting {
 
   saveChanges() {
     console.log('Saving new settings...', this.systemSettings);
-    
-    alert(`Changes Saved! New service time is ${this.systemSettings.defaultServiceTime} Minutes.`);
+
+    this.toastr.success(`Changes Saved! New service time is ${this.systemSettings.defaultServiceTime} Minutes.`);
   }
 }

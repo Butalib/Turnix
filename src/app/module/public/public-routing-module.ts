@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { QueueTrackingComponent } from './landing-page/queue-tracking/queue-tracking';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'landing', pathMatch: 'full'},
   {
-    path: '',
+    
+    path: 'landing',
     loadChildren: () => import('./landing-page/landing-page-module').then(m => m.LandingPageModule)
   },
   {
     path : 'queue',
-    loadChildren: () => import('./queue-tracking/queue-tracking-module').then(m => m.QueueTrackingModule)
+    component : QueueTrackingComponent
   }
 
 ];

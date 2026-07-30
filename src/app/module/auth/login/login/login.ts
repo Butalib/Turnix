@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { AuthService } from '../../../../core/services/auth.service';
 export class Login {
   form: FormGroup;
   errorMessage = '';
+  private toastr = inject(ToastrService);
 
   constructor(
     private router: Router,
@@ -29,6 +31,7 @@ export class Login {
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       this.errorMessage = 'Please enter a valid email and password.';
+      this.toastr.error(this.errorMessage);
       return;
     }
 
@@ -36,10 +39,12 @@ export class Login {
     const success = this.authService.login(email, password);
 
     if (success) {
+      this.toastr.success('Login successful');
       this.router.navigate(['/dashboard']);
       console.log('Login successful');
     } else {
       this.errorMessage = 'Invalid email or password.';
+      this.toastr.error(this.errorMessage);
       this.form.markAllAsTouched();
     }
   }

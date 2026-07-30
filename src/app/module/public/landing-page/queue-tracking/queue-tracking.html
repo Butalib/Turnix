@@ -1,0 +1,165 @@
+<div class="tracking-container">
+  <!-- Header -->
+  <header class="page-header">
+    <h1>Queue Tracking</h1>
+    <p>Keep track of your position and estimated wait time.</p>
+  </header>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-icon">✓</div>
+    <div class="alert-content">
+      <strong>Queue Joined Successfully</strong>
+      <p>You are now in line. We'll notify you when it's your turn.</p>
+    </div>
+  </div>
+
+  <!-- Top Metrics Row -->
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <span class="metric-label">CURRENT SERVING</span>
+      <span class="metric-value">A098</span>
+    </div>
+    <div class="metric-card primary">
+      <span class="metric-label">YOUR TICKET</span>
+      <span class="metric-value">A102</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">PEOPLE AHEAD</span>
+      <span class="metric-value">4</span>
+    </div>
+    <div class="metric-card">
+      <span class="metric-label">EST. WAIT</span>
+      <span class="metric-value">18 <small>min</small></span>
+    </div>
+  </div>
+
+  <!-- Main Content Layout -->
+  <div class="main-grid">
+    
+    <!-- Left Column: Big Ticket Card & Queue Progress -->
+    <div class="left-column">
+      
+      <!-- Ticket Main Details -->
+      <div class="card ticket-main-card">
+        <div class="ticket-header">
+          <div>
+            <span class="ticket-title">TICKET NUMBER</span>
+            <h2 class="ticket-id">A102</h2>
+          </div>
+          <span class="badge badge-waiting">● Waiting</span>
+          <div class="qr-placeholder">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=A102" alt="QR Code" />
+          </div>
+        </div>
+
+        <div class="ticket-info-grid">
+          <div class="info-item">
+            <span class="info-label">QUEUE POS.</span>
+            <span class="info-value">5</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">PEOPLE AHEAD</span>
+            <span class="info-value">4</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">EST. WAIT</span>
+            <span class="info-value">18m</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">BRANCH</span>
+            <span class="info-value">Mansoura</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">SERVICE</span>
+            <span class="info-value">Customer Service</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">REF ID</span>
+            <span class="info-value">TX-48291</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Queue Progress -->
+      <div class="card progress-card">
+        <h3>Queue Progress</h3>
+        <ul class="timeline">
+          <li class="timeline-item completed">
+            <div class="timeline-icon">✓</div>
+            <div class="timeline-text">
+              <strong>Ticket Generated</strong>
+              <span>10:42 AM</span>
+            </div>
+          </li>
+          <li class="timeline-item active">
+            <div class="timeline-icon"></div>
+            <div class="timeline-text">
+              <strong>Waiting in Queue</strong>
+              <span>Currently 5th in line</span>
+            </div>
+          </li>
+          <li class="timeline-item disabled">
+            <div class="timeline-icon"></div>
+            <div class="timeline-text">
+              <strong>Almost Your Turn</strong>
+              <span>Will notify when 1 person ahead</span>
+            </div>
+          </li>
+          <li class="timeline-item disabled">
+            <div class="timeline-icon"></div>
+            <div class="timeline-text">
+              <strong>Called</strong>
+              <span>Proceed to counter</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Recent Activity & Things to Know -->
+    <div class="right-column">
+      
+      <!-- Recent Activity -->
+      <div class="card activity-card">
+        <div class="card-header">
+          <h3>Recent Activity</h3>
+          <span class="badge-live">Live</span>
+        </div>
+        <div class="activity-list">
+          <div class="activity-item">
+            <div>
+              <strong>Ticket A098 Called</strong>
+              <p>Counter 3</p>
+            </div>
+            <span class="time">2 min ago</span>
+          </div>
+          <div class="activity-item">
+            <div>
+              <strong>Ticket A097 Completed</strong>
+              <p>Counter 1</p>
+            </div>
+            <span class="time">5 min ago</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Things to know -->
+      <div class="card info-card">
+        <h3>ⓘ Things to know</h3>
+        <ul>
+          <li>We will send an SMS when there is 1 person ahead of you.</li>
+          <li>If you miss your turn, your ticket will remain valid for 15 minutes.</li>
+          <li>Please have your reference ID or QR code ready upon arrival.</li>
+        </ul>
+      </div>
+
+      <!-- Return Button -->
+      <button (click)="goHome()" class="btn-primary">Return Home</button>
+  
+
+    </div>
+
+  </div>
+</div>

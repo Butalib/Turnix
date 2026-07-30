@@ -1,256 +1,248 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turnix — Join the Queue Before You Arrive</title>
-</head>
-<body>
+<!-- Top nav bar -->
+<header class="top-nav">
+  <div class="top-nav__inner">
+    <div class="logo">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 6L3 12l6 6M15 6l6 6-6 6" />
+      </svg>
+      Turnix
+    </div>
+    <nav class="top-nav__links">
+      <a href="#">Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#">Services</a>
+      <a href="#">FAQ</a>
+    </nav>
+    <div class="top-nav__actions">
+      <a routerLink="/auth/login">Employee Login</a>
+      <!-- في الـ Header أو الـ Hero section -->
+      <button (click)="scrollToForm()" class="btn btn--primary">Join Queue</button>
+    </div>
+  </div>
+</header>
 
-  <!-- Top nav bar -->
-  <header class="top-nav">
-    <div class="top-nav__inner">
-      <div class="logo">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M9 6L3 12l6 6M15 6l6 6-6 6"/>
-        </svg>
-        Turnix
-      </div>
-      <nav class="top-nav__links">
-        <a href="#">Home</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#">Services</a>
-        <a href="#">FAQ</a>
-      </nav>
-      <div class="top-nav__actions">
-        <a routerLink="/auth/login">Employee Login</a>
-        <a href="#reserve" class="btn btn--primary btn--sm">Join Queue</a>
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__copy">
+      <h1 class="hero__eyebrow">Join the Queue Before You Arrive</h1>
+      <p class="hero__lede">
+        Reserve your queue remotely, monitor your waiting time in real-time, and arrive only when it's your turn.
+      </p>
+      <div class="hero__actions">
+        <a (click)="scrollToForm()" class="btn btn--primary">Join Queue</a>
+        <a href="#how-it-works" class="btn btn--outline">How It Works</a>
       </div>
     </div>
-  </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero__copy">
-        <h1 class="hero__eyebrow">Join the Queue Before You Arrive</h1>
-        <p class="hero__lede">
-          Reserve your queue remotely, monitor your waiting time in real-time, and arrive only when it's your turn.
-        </p>
-        <div class="hero__actions">
-          <a href="#reserve" class="btn btn--primary">Join Queue</a>
-          <a href="#how-it-works" class="btn btn--outline">How It Works</a>
+    <div class="hero__visual">
+      <div class="dashboard-mock">
+        <div class="dashboard-mock__bar">
+          <span class="dashboard-mock__dot"></span>
+          <span class="dashboard-mock__dot"></span>
+          <span class="dashboard-mock__dot"></span>
+          <span class="dashboard-mock__label">TURNIX</span>
         </div>
-      </div>
-
-      <div class="hero__visual">
-        <div class="dashboard-mock">
-          <div class="dashboard-mock__bar">
-            <span class="dashboard-mock__dot"></span>
-            <span class="dashboard-mock__dot"></span>
-            <span class="dashboard-mock__dot"></span>
-            <span class="dashboard-mock__label">TURNIX</span>
-          </div>
-          <div class="dashboard-mock__body">
-            <div class="dashboard-mock__stats">
-              <div class="dashboard-mock__stat">
-                <strong>[ON_TIME_RATE]</strong>
-                <span>On-time</span>
-              </div>
-              <div class="dashboard-mock__stat">
-                <strong>[SATISFACTION_RATE]</strong>
-                <span>Satisfaction</span>
-              </div>
+        <div class="dashboard-mock__body">
+          <div class="dashboard-mock__stats">
+            <div class="dashboard-mock__stat">
+              <strong>[ON_TIME_RATE]</strong>
+              <span>On-time</span>
             </div>
-            <svg class="dashboard-mock__chart" viewBox="0 0 300 90" preserveAspectRatio="none">
-              <polyline
-                points="0,70 40,55 80,60 120,35 160,45 200,20 240,30 300,10"
-                fill="none" stroke="#3457f2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            <div class="dashboard-mock__stat">
+              <strong>[SATISFACTION_RATE]</strong>
+              <span>Satisfaction</span>
+            </div>
           </div>
+          <svg class="dashboard-mock__chart" viewBox="0 0 300 90" preserveAspectRatio="none">
+            <polyline points="0,70 40,55 80,60 120,35 160,45 200,20 240,30 300,10" fill="none" stroke="#3457f2"
+              stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="how-it-works">
+  <!-- How It Works -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="section-heading">
+      <h2>How It Works</h2>
+    </div>
+
+    <div class="steps">
+      <article class="step-card">
+        <span class="step-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+          </svg>
+        </span>
+        <span class="step-card__step">Step 1</span>
+        <h3 class="step-card__title">Choose Branch</h3>
+      </article>
+
+      <article class="step-card">
+        <span class="step-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="4" y="5" width="16" height="14" rx="2" />
+            <path d="M9 3v4M15 3v4M4 10h16" />
+          </svg>
+        </span>
+        <span class="step-card__step">Step 2</span>
+        <h3 class="step-card__title">Choose Service</h3>
+      </article>
+
+      <article class="step-card">
+        <span class="step-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 0 0 0-3V9z" />
+            <path d="M9 7v10" stroke-dasharray="2 2" />
+          </svg>
+        </span>
+        <span class="step-card__step">Step 3</span>
+        <h3 class="step-card__title">Get Digital Ticket</h3>
+      </article>
+
+      <article class="step-card">
+        <span class="step-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+          </svg>
+        </span>
+        <span class="step-card__step">Step 4</span>
+        <h3 class="step-card__title">Track Your Turn Live</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- Reserve Your Spot -->
+  <section id="reserve" class="reserve">
+    <div class="reserve__inner">
       <div class="section-heading">
-        <h2>How It Works</h2>
+        <h2>Reserve Your Spot</h2>
+        <p>Your booking takes less than 30 seconds.</p>
       </div>
 
-      <div class="steps">
-        <article class="step-card">
-          <span class="step-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/>
-              <circle cx="12" cy="10" r="2.5"/>
-            </svg>
-          </span>
-          <span class="step-card__step">Step 1</span>
-          <h3 class="step-card__title">Choose Branch</h3>
-        </article>
+      <div class="reserve__grid">
+        <!-- Form -->
+        <form class="queue-form" id="queue-form" (ngSubmit)="onSubmit()" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="branch">Branch</label>
+              <!-- يفضل استخدام formControlName إذا كنت تستخدم Reactive Forms -->
+              <select id="branch" name="branch" required>
+                <option value="" selected disabled>Select Branch...</option>
+                <option value="branch-placeholder-1">fanta</option>
+                <option value="branch-placeholder-2">cairo</option>
+                <option value="branch-placeholder-3">giza</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select Service...</option>
+                <option value="service-placeholder-1">masr</option>
+                <option value="service-placeholder-2">cairo</option>
+                <option value="service-placeholder-3">vice</option>
+              </select>
+            </div>
+          </div>
 
-        <article class="step-card">
-          <span class="step-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="4" y="5" width="16" height="14" rx="2"/>
-              <path d="M9 3v4M15 3v4M4 10h16"/>
-            </svg>
-          </span>
-          <span class="step-card__step">Step 2</span>
-          <h3 class="step-card__title">Choose Service</h3>
-        </article>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Raafat al-Haggan" required>
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone Number</label>
+              <!-- التعديل اللي إنت عملته لـ tel ممتاز جداً للـ UX على الموبايل -->
+              <input type="tel" id="phone" name="phone" placeholder="+20 10 00000000" required>
+            </div>
+          </div>
 
-        <article class="step-card">
-          <span class="step-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1.5a1.5 1.5 0 0 0 0 3V15a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1.5a1.5 1.5 0 0 0 0-3V9z"/>
-              <path d="M9 7v10" stroke-dasharray="2 2"/>
-            </svg>
-          </span>
-          <span class="step-card__step">Step 3</span>
-          <h3 class="step-card__title">Get Digital Ticket</h3>
-        </article>
+          <!-- تم إزالة routerLink لضمان سير الـ Logic بشكل صحيح -->
+          <button type="submit" class="btn btn--primary btn--block">Join Queue</button>
+        </form>
 
-        <article class="step-card">
-          <span class="step-card__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/>
-              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-            </svg>
-          </span>
-          <span class="step-card__step">Step 4</span>
-          <h3 class="step-card__title">Track Your Turn Live</h3>
-        </article>
-      </div>
-    </section>
-
-    <!-- Reserve Your Spot -->
-    <section id="reserve" class="reserve">
-      <div class="reserve__inner">
-        <div class="section-heading">
-          <h2>Reserve Your Spot</h2>
-          <p>Your booking takes less than 30 seconds.</p>
-        </div>
-
-        <div class="reserve__grid">
-          <!-- Form -->
-          <form class="queue-form" id="queue-form" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="branch">Branch</label>
-                <select id="branch" name="branch" required>
-                  <option value="" selected disabled>Select Branch...</option>
-                  <option value="branch-placeholder-1">[BRANCH_NAME_1]</option>
-                  <option value="branch-placeholder-2">[BRANCH_NAME_2]</option>
-                  <option value="branch-placeholder-3">[BRANCH_NAME_3]</option>
-                </select>
+        <!-- Ticket panel -->
+        <div class="ticket-panel">
+          <div class="ticket-card">
+            <div class="ticket-card__label">YOUR TICKET</div>
+            <div class="ticket-card__number">[TICKET_NUMBER]</div>
+            <div class="ticket-card__meta">
+              <div class="ticket-card__meta-item">
+                <span>Position</span>
+                <strong>[QUEUE_POSITION]</strong>
               </div>
-              <div class="form-field">
-                <label for="service">Service</label>
-                <select id="service" name="service" required>
-                  <option value="" selected disabled>Select Service...</option>
-                  <option value="service-placeholder-1">[SERVICE_NAME_1]</option>
-                  <option value="service-placeholder-2">[SERVICE_NAME_2]</option>
-                  <option value="service-placeholder-3">[SERVICE_NAME_3]</option>
-                </select>
+              <div class="ticket-card__meta-item">
+                <span>Est. Wait</span>
+                <strong>[ESTIMATED_WAIT_TIME]</strong>
               </div>
             </div>
+            <span class="ticket-card__status">[TICKET_STATUS]</span>
+          </div>
 
-            <div class="form-row">
-              <div class="form-field">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" placeholder="Raafat al-Haggan" required>
-              </div>
-              <div class="form-field">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="+20 10 00000000" required>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn--primary btn--block">Join Queue</button>
-          </form>
-
-          <!-- Ticket panel -->
-          <div class="ticket-panel">
-            <div class="ticket-card">
-              <div class="ticket-card__label">YOUR TICKET</div>
-              <div class="ticket-card__number">[TICKET_NUMBER]</div>
-              <div class="ticket-card__meta">
-                <div class="ticket-card__meta-item">
-                  <span>Position</span>
-                  <strong>[QUEUE_POSITION]</strong>
-                </div>
-                <div class="ticket-card__meta-item">
-                  <span>Est. Wait</span>
-                  <strong>[ESTIMATED_WAIT_TIME]</strong>
-                </div>
-              </div>
-              <span class="ticket-card__status">[TICKET_STATUS]</span>
-            </div>
-
-            <div class="status-card">
-                <!--
+          <div class="status-card">
+            <!--
                 update according to backend status
                 - Live Status       Green
                 - Pending/restart   Yellow
                 - Offline           Red
                 -->
-              <div class="status-card__title">Live Status</div>    
-              <div class="status-card__row">
-                <div>
-                  <span class="status-card__row-label">Now Serving</span>
-                  <span class="status-card__row-value">[NOW_SERVING_TICKET]</span>
-                </div>
-                <div>
-                  <span class="status-card__row-label">Ahead</span>
-                  <span class="status-card__row-value status-card__row-value--muted">[AHEAD_COUNT]</span>
-                </div>
+            <div class="status-card__title">Live Status</div>
+            <div class="status-card__row">
+              <div>
+                <span class="status-card__row-label">Now Serving</span>
+                <span class="status-card__row-value">[NOW_SERVING_TICKET]</span>
               </div>
-              <!-- <div class="progress-bar">
+              <div>
+                <span class="status-card__row-label">Ahead</span>
+                <span class="status-card__row-value status-card__row-value--muted">[AHEAD_COUNT]</span>
+              </div>
+            </div>
+            <!-- <div class="progress-bar">
                 <div class="progress-bar__fill"></div>
               </div> -->
-              <p class="status-card__footnote">[REMAINING_TIME]</p>
-            </div>
+            <p class="status-card__footnote">[REMAINING_TIME]</p>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <div class="site-footer__brand">
-        <div class="logo">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 6L3 12l6 6M15 6l6 6-6 6"/>
-          </svg>
-          Turnix
-        </div>
-        <p>Modern queue management for efficient service centers.</p>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col__title">Product</div>
-        <ul>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#">Services</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col__title">Legal</div>
-        <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">FAQ</a></li>
-        </ul>
-      </div>
     </div>
-    <div class="site-footer__bottom">
-      <p>&copy; 2024 Turnix Remote Queue Management. All rights reserved.</p>
-    </div>
-  </footer>
+  </section>
+</main>
 
-</body>
-</html>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 6L3 12l6 6M15 6l6 6-6 6" />
+        </svg>
+        Turnix
+      </div>
+      <p>Modern queue management for efficient service centers.</p>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col__title">Product</div>
+      <ul>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#">Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <div class="footer-col__title">Legal</div>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p>&copy; 2024 Turnix Remote Queue Management. All rights reserved.</p>
+  </div>
+</footer>

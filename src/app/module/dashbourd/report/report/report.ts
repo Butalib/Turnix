@@ -1,6 +1,7 @@
-import { Component, OnInit, signal, computed } from '@angular/core';
+import { Component, OnInit, signal, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 interface ReportRecord {
   id: number;
@@ -20,6 +21,8 @@ interface ReportRecord {
 })
 export class ReportsComponent implements OnInit {
 
+  private toastr = inject(ToastrService);
+
   // Stats (مؤقتة)
   stats = signal({
     customersServed: 142,
@@ -35,7 +38,7 @@ export class ReportsComponent implements OnInit {
     { id: 3, date: 'Oct 24, 2023', served: 156, avgWait: '18m', avgService: '10m', skipped: 8 },
     { id: 4, date: 'Oct 23, 2023', served: 110, avgWait: '12m', avgService: '08m', skipped: 2 },
     { id: 5, date: 'Oct 22, 2023', served: 134, avgWait: '15m', avgService: '09m', skipped: 4 },
-    { id: 6, date: 'Oct 21, 2023', served: 96,  avgWait: '11m', avgService: '07m', skipped: 1 },
+    { id: 6, date: 'Oct 21, 2023', served: 96, avgWait: '11m', avgService: '07m', skipped: 1 },
   ]);
 
   searchTerm = signal('');
@@ -59,6 +62,5 @@ export class ReportsComponent implements OnInit {
   }
 
   exportReport() {
-    alert('Export Report clicked (هتربطيها بالباك بعدين)');
   }
 }
