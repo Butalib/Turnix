@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login">
+  <section class="login-intro">
+    <div class="login-intro__badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M9 6L3 12l6 6M15 6l6 6-6 6" />
+      </svg>
+    </div>
+
+    <h1 class="login-intro__title">Welcome Back</h1>
+    <p class="login-intro__lede">Manage queues efficiently and deliver exceptional service experiences.</p>
+  </section>
+
+  <section class="login-form-side">
+    <div class="login-card">
+      <div class="login-card__header">
+        <h1>Sign in to Turnix</h1>
+        <p>Use email: 1@1 and password: 123123</p>
+      </div>
+
+      <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-field">
+          <label for="email">Email address</label>
+          <div class="input-icon-group">
+            <input type="email" id="email" formControlName="email" placeholder="name@company.com" required>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="password">Password</label>
+          <div class="input-icon-group">
+            <input type="password" id="password" formControlName="password" placeholder="••••••••" required>
+          </div>
+        </div>
+
+        <p class="login-card__footnote" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        <button type="submit" class="btn btn--primary btn--block">Sign In</button>
+      </form>
+    </div>
+  </section>
+</div>
