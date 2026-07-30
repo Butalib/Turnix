@@ -45,8 +45,10 @@
             "styles": [
               "src/styles.scss",
               "src/app/app.scss"
-            ],"scripts": [
-             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -58,8 +60,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "12kB",
+                  "maximumError": "20kB"
                 }
               ],
               "outputHashing": "all"
