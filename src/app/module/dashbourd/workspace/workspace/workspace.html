@@ -7,10 +7,10 @@
             <p class="text-muted small">Manage today's customer queue in real time.</p>
         </div>
         <div class="d-flex gap-3">
-            <!-- ضيف ستايل الزراير دي عندك -->
             <div class="badge bg-light text-dark p-2 border">
               <img src="assets/workspace/headee/headercalender.svg" class="icon-calendar" alt="Calendar Icon" width="20" height="20">
-                {{ currentDate }}
+                <!-- ضفنا الـ Date Pipe هنا عشان يخلي شكل التاريخ شيك -->
+                {{ currentDate | date:'MMM d, yyyy | hh:mm a' }}
             </div>
             <div class="badge bg-light text-success p-2 border">
                 <span class="dot bg-success"></span> Online
@@ -50,52 +50,67 @@
         </div>
     </div>
 
-    <!-- 3. Current Serving Section -->
-    <div class="card shadow-sm mb-4 p-4 border-primary">
-        <div class="d-flex justify-content-between mb-3">
-            <span class="badge bg-success bg-opacity-25 text-success">CALLED</span>
-            <span class="text-muted small">Counter 3 <br> 05:22 elapsed</span>
-        </div>
-
-        <div class="row align-items-center mb-4">
-            <!-- Ticket Number Box -->
-            <div class="col-md-6">
-                <div class="bg-light p-4 text-center rounded border">
-                    <span class="text-muted">Ticket</span>
-                    <h1 class="display-4 fw-bold text-primary mb-0">{{ currentTicket.number }}</h1>
-                </div>
+    <!-- 3. Current Serving Section (محمي بـ Control Flow) -->
+    @if (currentTicket) {
+        <div class="card shadow-sm mb-4 p-4 border-primary">
+            <div class="d-flex justify-content-between mb-3">
+                <span class="badge bg-success bg-opacity-25 text-success">CALLED</span>
+                <span class="text-muted small">Counter 3 <br> 05:22 elapsed</span>
             </div>
-            <!-- Customer Info -->
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-6 mb-3">
-                        <small class="text-muted">CUSTOMER</small>
-                        <div class="fw-medium">{{ currentTicket.customerName }}</div>
-                    </div>
-                    <div class="col-6 mb-3">
-                        <small class="text-muted">PHONE</small>
-                        <div class="fw-medium">{{ currentTicket.phone }}</div>
-                    </div>
-                    <div class="col-6">
-                        <small class="text-muted">SERVICES</small>
-                        <div class="fw-medium">{{ currentTicket.service }}</div>
-                    </div>
-                    <div class="col-6">
-                        <small class="text-muted">JOINED AT</small>
-                        <div class="fw-medium">{{ currentTicket.joinedAt }}</div>
+
+            <div class="row align-items-center mb-4">
+                <!-- Ticket Number Box -->
+                <div class="col-md-6">
+                    <div class="bg-light p-4 text-center rounded border">
+                        <span class="text-muted">Ticket</span>
+                        <h1 class="display-4 fw-bold text-primary mb-0">{{ currentTicket.number }}</h1>
                     </div>
                 </div>
+                <!-- Customer Info -->
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <small class="text-muted">CUSTOMER</small>
+                            <div class="fw-medium">{{ currentTicket.customerName }}</div>
+                        </div>
+                        <div class="col-6 mb-3">
+                            <small class="text-muted">PHONE</small>
+                            <div class="fw-medium">{{ currentTicket.phone }}</div>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">SERVICES</small>
+                            <div class="fw-medium">{{ currentTicket.service }}</div>
+                        </div>
+                        <div class="col-6">
+                            <small class="text-muted">JOINED AT</small>
+                            <div class="fw-medium">{{ currentTicket.joinedAt }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-danger px-4" (click)="cancelTicket()">Cancel Ticket</button>
+                <button class="btn btn-light px-4 border" (click)="skipCustomer()">Skip Customer</button>
+                <button class="btn btn-primary px-4" (click)="completeCurrentService()">✓ Complete Service</button>
             </div>
         </div>
-
-        <!-- Actions -->
-        <div class="d-flex gap-3">
-            <button class="btn btn-outline-danger px-4">Cancel Ticket</button>
-            <button class="btn btn-light px-4 border">Skip Customer</button>
-            <button class="btn btn-primary px-4">✓ Complete Service</button>
+    } @else {
+        <!-- الكارت البديل لما تدوس إلغاء أو مفيش عميل -->
+        <div class="card shadow-sm mb-4 p-5 text-center bg-light border">
+            <div class="text-muted mb-3">
+                <i class="fa-solid fa-users-slash display-4 opacity-50"></i>
+            </div>
+            <h4 class="text-muted fw-normal">No active customer</h4>
+            <p class="text-muted small">Select a customer from the queue below to start serving.</p>
+            <div>
+                <button class="btn btn-primary mt-2 px-4" (click)="callNextInQueue()" [disabled]="waitingQueue.length === 0">
+                    Call Next In Queue
+                </button>
+            </div>
         </div>
-    </div>
-
+    }
 
     <!-- 4. Queue Table Section -->
     <div class="card shadow-sm p-4">
@@ -136,32 +151,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- استخدام Angular 17 Control Flow الجديد اللي أنت شغال بيه -->
                     @for (item of waitingQueue; track item.ticket) {
                     <tr>
                         <td class="fw-medium">{{ item.pos }}</td>
                         <td><span class="fw-bold text-primary">{{ item.ticket }}</span></td>
                         <td class="fw-medium">{{ item.customer }}</td>
                         <td>
-                            <!-- ستايل البادج بيتغير حسب الخدمة مؤقتاً -->
-                            <span
-                                class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle rounded-pill px-3 py-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle rounded-pill px-3 py-2">
                                 {{ item.service }}
                             </span>
                         </td>
                         <td>{{ item.joinedAt }}</td>
                         <td><span class="text-primary fw-medium">{{ item.waitTime }}</span></td>
                         <td>
-                            <span
-                                class="badge bg-warning bg-opacity-10 text-warning border border-warning-subtle rounded-pill px-3 py-2">
-                                <i class="icon-clock small me-1"></i> {{ item.status }}
+                            <span class="badge bg-warning bg-opacity-10 text-warning border border-warning-subtle rounded-pill px-3 py-2">
+                                <i class="fa-regular fa-clock small me-1"></i> {{ item.status }}
                             </span>
                         </td>
                         <td class="text-end">
                             <div class="btn-group gap-2">
                                 <button class="btn btn-sm btn-light border text-secondary"><i class="fa-regular fa-eye"></i></button>
-                                <button class="btn btn-sm btn-primary"><i class="fa-solid fa-phone"></i></button>
-                                <button class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-forward-step"></i></button>
+                                <button class="btn btn-sm btn-primary" (click)="callSpecificCustomer(item.ticket)"><i class="fa-solid fa-phone"></i></button>
+                                <!-- ضفتلك فانكشن وهمية تمسح من الطابور مباشرة لو حبيت تشغلها -->
+                                <button class="btn btn-sm btn-outline-danger" (click)="callSpecificCustomer(item.ticket)"><i class="fa-solid fa-forward-step"></i></button> 
                             </div>
                         </td>
                     </tr>
@@ -175,9 +187,9 @@
             </table>
         </div>
 
-        <!-- Pagination Skeleton (عشان يكمل الشكل بس للتسليم) -->
+        <!-- Pagination Skeleton -->
         <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top text-muted small">
-            <div>Showing 1 to 6 of 12 entries</div>
+            <div>Showing 1 to {{ waitingQueue.length }} entries</div>
             <div class="d-flex gap-2">
                 <button class="btn btn-sm btn-light border">&lt;</button>
                 <button class="btn btn-sm btn-primary">1</button>
