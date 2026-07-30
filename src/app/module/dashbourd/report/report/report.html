@@ -1,0 +1,220 @@
+
+<div class="dashboard">
+        <!-- ===================== SIDENAV ===================== -->
+        <div class="sidenav">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="logo" />
+            </div>
+            <div class="workspace-bt slidenav-bt">
+                <button>
+                    <img src="assets/images/workspace.png" alt="workspace">
+                    <p>Workspace</p>
+                </button>
+            </div>
+            <div class="employee-bt slidenav-bt">
+                <button routerLink="/employee" routerLinkActive="active">
+                    <img src="assets/images/employee.png" alt="employee">
+                    <p>Employee</p>
+                </button>
+            </div>
+            <div class="report-bt slidenav-bt">
+                <button>
+                    <img src="assets/images/reports.png" alt="reports">
+                    <p>Report us</p>
+                </button>
+            </div>
+            <div class="setting-bt slidenav-bt">
+                <button>
+                    <img src="assets/images/setting.png" alt="setting">
+                    <p>Setting</p>
+                </button>
+            </div>
+            <div class="profile-bt slidenav-bt">
+                <button>
+                    <img src="assets/images/profile.png" alt="profile">
+                    <div class="info">
+                        <p>Sarah Jenkkins</p>
+                        <p>Administrator</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    <div class="report-page">
+    
+        <!-- Top Bar -->
+        <div class="d-flex justify-content-between mt-2">
+            <div class="logo-emp mx-5">
+                <img src="assets/images/miniLogo.png" alt="logo" />
+            </div>
+            <div class="nav-icons d-flex">
+                <!-- نفس أيقونات الـ nav بتاعة Employee -->
+            </div>
+        </div>
+    
+        <div class="line"></div>
+    
+        <!-- Header + Export Button -->
+        <div class="d-flex justify-content-between mt-4">
+            <div class="mx-5">
+                <h2>Reports</h2>
+                <p>View today's operational performance.</p>
+            </div>
+            <div>
+                <button class="Add-emp-bt text-light bg-primary rounded-1 border-0 d-flex text-center"
+                    (click)="exportReport()">
+                    <i class="bi bi-download me-2"></i>
+                    <p class="mt-1">Export Report</p>
+                </button>
+            </div>
+        </div>
+    
+        <!-- ===================== STATS BOXES ===================== -->
+        <div class="d-flex justify-content-evenly align-items-center flex-wrap boxes-row">
+    
+            <!-- Customers Served -->
+            <div class="d-flex emp-box justify-content-evenly align-items-center flex-wrap">
+                <div>
+                    <svg fill="#2563EB" width="30px" class="box-icon1" height="64px" viewBox="0 0 56 56">
+                        <path
+                            d="M 38.7232 28.5490 C 43.1399 28.5490 46.9403 24.6047 46.9403 19.4690 C 46.9403 14.3949 43.1193 10.6356 38.7232 10.6356 C 34.3271 10.6356 30.5061 14.4771 30.5061 19.5101 C 30.5061 24.6047 34.3066 28.5490 38.7232 28.5490 Z M 15.0784 29.0215 C 18.8994 29.0215 22.2274 25.5703 22.2274 21.1125 C 22.2274 16.6958 18.8789 13.4294 15.0784 13.4294 C 11.2575 13.4294 7.8885 16.7779 7.9090 21.1536 C 7.9090 25.5703 11.2370 29.0215 15.0784 29.0215 Z M 3.6155 47.5717 L 19.2281 47.5717 C 17.0917 44.4697 19.7006 38.2247 24.1173 34.8146 C 21.8371 33.2944 18.8994 32.1645 15.0579 32.1645 C 5.7931 32.1645 0 39.0053 0 44.6957 C 0 46.5445 1.0271 47.5717 3.6155 47.5717 Z M 25.8018 47.5717 L 51.6241 47.5717 C 54.8493 47.5717 56 46.6472 56 44.8395 C 56 39.5394 49.3644 32.2261 38.7026 32.2261 C 28.0616 32.2261 21.4262 39.5394 21.4262 44.8395 C 21.4262 46.6472 22.5766 47.5717 25.8018 47.5717 Z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="d-flex flex-column align-items-start flex-wrap">
+                    <p>Customers Served</p>
+                    <h1>{{ stats().customersServed }}</h1>
+                    <small class="text-muted">Total today</small>
+                </div>
+            </div>
+    
+            <!-- Average Waiting Time -->
+            <div class="d-flex emp-box justify-content-evenly align-items-center flex-wrap">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="box-icon2" width="28" height="30" viewBox="0 0 24 24">
+                        <path fill="#F59E0B"
+                            d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m.5-13H11v6l5.2 3.2l.8-1.3l-4.5-2.7z" />
+                    </svg>
+                </div>
+                <div class="d-flex flex-column align-items-start flex-wrap">
+                    <p>Average Waiting Time</p>
+                    <h1>{{ stats().avgWaitingTime }}</h1>
+                    <small class="text-muted">vs 17m average</small>
+                </div>
+            </div>
+    
+            <!-- Average Service Time -->
+            <div class="d-flex emp-box justify-content-evenly align-items-center flex-wrap">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="box-icon3" width="28" height="30" viewBox="0 0 24 24">
+                        <path fill="#3B82F6"
+                            d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m4.2 14.2L11 13V7h1.5v5.2l4.5 2.7z" />
+                    </svg>
+                </div>
+                <div class="d-flex flex-column align-items-start flex-wrap">
+                    <p>Average Service Time</p>
+                    <h1>{{ stats().avgServiceTime }}</h1>
+                    <small class="text-muted">vs 10m average</small>
+                </div>
+            </div>
+    
+            <!-- Skipped Tickets -->
+            <div class="d-flex emp-box justify-content-evenly align-items-center flex-wrap">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="box-icon4" width="28" height="30" viewBox="0 0 24 24">
+                        <path fill="#6B7280"
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8s8 3.58 8 8s-3.58 8-8 8m-1-13h2v6h-2zm0 8h2v2h-2z" />
+                    </svg>
+                </div>
+                <div class="d-flex flex-column align-items-start flex-wrap">
+                    <p>Skipped Tickets</p>
+                    <h1>{{ stats().skippedTickets }}</h1>
+                    <small class="text-muted">Total today</small>
+                </div>
+            </div>
+    
+        </div>
+    
+        <!-- ===================== PERFORMANCE RECORDS ===================== -->
+        <div class="d-flex justify-content-between align-items-center mx-5 mb-3">
+            <h5 class="mb-0 fw-semibold">Performance Records</h5>
+        </div>
+    
+        <div class="d-flex justify-content-between">
+            <div class="search-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" width="20" height="20" viewBox="0 0 21 21">
+                    <g fill="none" fill-rule="evenodd" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8.5" cy="8.5" r="5" />
+                        <path d="M17.571 17.5L12 12" />
+                    </g>
+                </svg>
+                <input type="search" class="search-input rounded-2" placeholder="Search reports..." [ngModel]="searchTerm()"
+                    (ngModelChange)="searchTerm.set($event)">
+            </div>
+    
+            <div class="select-status">
+                <select class="form-select" [ngModel]="selectedDate()" (ngModelChange)="selectedDate.set($event)">
+                    <option value="all">Select Date</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+        </div>
+    
+        <!-- Table -->
+        <div class="table-container">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>SERVED</th>
+                        <th>AVG. WAIT</th>
+                        <th>AVG. SERVICE</th>
+                        <th>SKIPPED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (record of filteredRecords(); track record.id) {
+                    <tr>
+                        <td>
+                            <p>{{ record.date }}</p>
+                        </td>
+                        <td>
+                            <p>{{ record.served }}</p>
+                        </td>
+                        <td>
+                            <p>{{ record.avgWait }}</p>
+                        </td>
+                        <td>
+                            <p>{{ record.avgService }}</p>
+                        </td>
+                        <td>
+                            <p>{{ record.skipped }}</p>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Pagination -->
+        <div class="d-flex justify-content-between">
+            <div>
+                <p class="bottom-text">Showing 1 to 6 of 30 entries</p>
+            </div>
+            <div class="navigate-emp">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    
+    </div>
+
+</div>

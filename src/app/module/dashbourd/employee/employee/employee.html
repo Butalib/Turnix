@@ -1,54 +1,420 @@
-
 <div class="dashboard">
 
-
-    //                           sidenav style ( take this part only)
+    <!-- ===================== SIDENAV ===================== -->
     <div class="sidenav">
         <div class="logo">
-            <img src="\assets\images\logo.png" alt="logo" />
+            <img src="assets/images/logo.png" alt="logo" />
         </div>
         <div class="workspace-bt slidenav-bt">
             <button>
-                <img src="\assets\images\workspace.png" alt="workspace">
+                <img src="assets/images/workspace.png" alt="workspace">
                 <p>Workspace</p>
             </button>
         </div>
         <div class="employee-bt slidenav-bt">
-            <button>
-                <img src="\assets\images\employee.png" alt="employee">
+            <button routerLink="/employee" routerLinkActive="active">
+                <img src="assets/images/employee.png" alt="employee">
                 <p>Employee</p>
             </button>
         </div>
         <div class="report-bt slidenav-bt">
             <button>
-                <img src="\assets\images\reports.png" alt="reports">
+                <img src="assets/images/reports.png" alt="reports">
                 <p>Report us</p>
             </button>
         </div>
         <div class="setting-bt slidenav-bt">
             <button>
-                <img src="\assets\images\setting.png" alt="setting">
+                <img src="assets/images/setting.png" alt="setting">
                 <p>Setting</p>
             </button>
         </div>
         <div class="profile-bt slidenav-bt">
             <button>
-                <img src="\assets\images\profile.png" alt="profile">
+                <img src="assets/images/profile.png" alt="profile">
                 <div class="info">
                     <p>Sarah Jenkkins</p>
                     <p>Administrator</p>
                 </div>
-
             </button>
         </div>
-
     </div>
-    //                            end of sidenav style ( take this part only)
 
-
-    
+    <!-- ===================== EMPLOYEE PAGE ===================== -->
     <div class="employee-page">
+
+        <!-- Top Bar -->
+        <div class="d-flex justify-content-between mt-2">
+            <div class="logo-emp mx-5">
+                <img src="assets/images/miniLogo.png" alt="logo" />
+            </div>
+            <div class="nav-icons d-flex">
+                <!-- نفس الـ SVGs بتاعتك -->
+                <div>
+                    <svg fill="#54647A" width="64px" height="64px" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M10,21h4a2,2,0,0,1-4,0ZM3.076,18.383a1,1,0,0,1,.217-1.09L5,15.586V10a7.006,7.006,0,0,1,6-6.92V2a1,1,0,0,1,2,0V3.08A7.006,7.006,0,0,1,19,10v5.586l1.707,1.707A1,1,0,0,1,20,19H4A1,1,0,0,1,3.076,18.383ZM6.414,17H17.586l-.293-.293A1,1,0,0,1,17,16V10A5,5,0,0,0,7,10v6a1,1,0,0,1-.293.707Z">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 2.75C6.89137 2.75 2.75 6.89137 2.75 12C2.75 17.1086 6.89137 21.25 12 21.25C17.1086 21.25 21.25 17.1086 21.25 12C21.25 6.89137 17.1086 2.75 12 2.75ZM1.25 12C1.25 6.06294 6.06294 1.25 12 1.25C17.9371 1.25 22.75 6.06294 22.75 12C22.75 17.9371 17.9371 22.75 12 22.75C6.06294 22.75 1.25 17.9371 1.25 12ZM12 7.75C11.3787 7.75 10.875 8.25368 10.875 8.875C10.875 9.28921 10.5392 9.625 10.125 9.625C9.71079 9.625 9.375 9.28921 9.375 8.875C9.375 7.42525 10.5503 6.25 12 6.25C13.4497 6.25 14.625 7.42525 14.625 8.875C14.625 9.83834 14.1056 10.6796 13.3353 11.1354C13.1385 11.2518 12.9761 11.3789 12.8703 11.5036C12.7675 11.6246 12.75 11.7036 12.75 11.75V13C12.75 13.4142 12.4142 13.75 12 13.75C11.5858 13.75 11.25 13.4142 11.25 13V11.75C11.25 11.2441 11.4715 10.8336 11.7266 10.533C11.9786 10.236 12.2929 10.0092 12.5715 9.84439C12.9044 9.64739 13.125 9.28655 13.125 8.875C13.125 8.25368 12.6213 7.75 12 7.75ZM12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z"
+                            fill="#54647A"></path>
+                    </svg>
+                </div>
+                <div>
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.71997 11.28 8.71997 9.50998C8.71997 7.69998 10.18 6.22998 12 6.22998C13.81 6.22998 15.28 7.69998 15.28 9.50998C15.27 11.28 13.88 12.72 12.12 12.78Z"
+                            stroke="#54647A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M18.74 19.3801C16.96 21.0101 14.6 22.0001 12 22.0001C9.40001 22.0001 7.04001 21.0101 5.26001 19.3801C5.36001 18.4401 5.96001 17.5201 7.03001 16.8001C9.77001 14.9801 14.25 14.9801 16.97 16.8001C18.04 17.5201 18.64 18.4401 18.74 19.3801Z"
+                            stroke="#54647A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                            stroke="#54647A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <!-- Header + Add Button -->
+        <div class="d-flex justify-content-between mt-4">
+            <div class="mx-5">
+                <h2>Employee</h2>
+                <p>Manage employee accounts and access.</p>
+            </div>
+            <div>
+                <button class="Add-emp-bt text-light bg-primary rounded-1 border-0 d-flex text-center"
+                    (click)="openAddModal()">
+                    <img src="assets/images/Add.png" alt="Add-icon">
+                    <p class="mt-1">Add Employee</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        @if (successMessage()) {
+        <div class="alert alert-success mx-5 mt-3">
+            {{ successMessage() }}
+        </div>
+        }
+
+
+        <!-- Search + Filter -->
+        <div class="d-flex justify-content-between">
+            <div class="search-container">
+                <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" width="20" height="20" viewBox="0 0 21 21"
+                    fill="#6B7280">
+                    <g fill="none" fill-rule="evenodd" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="8.5" cy="8.5" r="5" />
+                        <path d="M17.571 17.5L12 12" />
+                    </g>
+                </svg>
+                <input type="search" class="search-input rounded-2" placeholder="Search Employee..." [ngModel]="searchTerm()"
+                (ngModelChange)="searchTerm.set($event)">
+            </div>
+            <div class="select-status">
+                <select class="form-select" [ngModel]="selectedStatus()" 
+        (ngModelChange)="selectedStatus.set($event)">
+                    <option selected>All Status</option>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                    <option value="break">On Break</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- ===================== TABLE ===================== -->
+        <div class="table-container">
+            <table class="w-100">
+                <thead>
+                    <tr>
+                        <th>Employee NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE NUMBER</th>
+                        <th>STATUS</th>
+                        <th>LAST LOGIN</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (emp of filteredEmployees(); track emp.id) {
+                    <tr>
+                        <td class="d-flex align-items-center emp-name-info">
+                            <div class="avatar" [class]="emp.color">{{ emp.avatar }}</div>
+                            <p class="emp-name">{{ emp.fullName }}</p>
+                        </td>
+                        <td>
+                            <p>{{ emp.email }}</p>
+                        </td>
+                        <td>
+                            <p>{{ emp.phone }}</p>
+                        </td>
+                        <td>
+                            <p class="status" [class.online]="emp.status === 'online'"
+                                [class.offline]="emp.status === 'offline'" [class.break]="emp.status === 'break'">
+                                {{ getStatusText(emp.status) }}
+                            </p>
+                        </td>
+                        <td>
+                            <p>{{ emp.lastLogin }}</p>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <button class="action-btn view" title="View" (click)="openViewModal(emp)">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                        <circle cx="12" cy="12" r="3" />
+                                    </svg>
+                                </button>
+                                <button class="action-btn" title="Edit" (click)="openEditModal(emp)">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                                    </svg>
+                                </button>
+                                <button class="action-btn delete" title="Delete" (click)="openDeleteModal(emp)">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <polyline points="3 6 5 6 21 6" />
+                                        <path
+                                            d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination (سيبته زي ما هو) -->
+        <div class="d-flex justify-content-between">
+            <div>
+                <p class="bottom-text">Showing 1 to 5 of 24 results</p>
+            </div>
+            <div class="navigate-emp">
+                <!-- نفس الـ pagination -->
+            </div>
+        </div>
 
     </div>
 </div>
 
+<!-- ===================== ADD MODAL ===================== -->
+@if (showAddModal()) {
+<div class="modal-overlay show" (click)="closeAddModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+        <div class="modal-header-custom">
+            <h5>Add Employee</h5>
+            <button class="modal-close-btn" (click)="closeAddModal()">&times;</button>
+        </div>
+        <div class="modal-body-custom">
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Full Name</label>
+                <input type="text" class="form-control" [(ngModel)]="addForm.fullName">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="addForm.email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Phone Number</label>
+                <input type="text" class="form-control" [(ngModel)]="addForm.phone">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Branch</label>
+                <select class="form-select" [(ngModel)]="addForm.branchId" (ngModelChange)="onAddBranchChange()">
+                    <option [ngValue]="null">Select Branch</option>
+                    @for (branch of branches(); track branch.id) {
+                    <option [ngValue]="branch.id">{{ branch.name }}</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Service</label>
+                <select class="form-select" [(ngModel)]="addForm.serviceId" [disabled]="!addForm.branchId">
+                    <option [ngValue]="null">Select Service</option>
+                    @for (service of services(); track service.id) {
+                    <option [ngValue]="service.id">{{ service.name }}</option>
+                    }
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Counter Number</label>
+                <input type="number" class="form-control" [(ngModel)]="addForm.counterNumber">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Password</label>
+                <input type="password" class="form-control" [(ngModel)]="addForm.password">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Confirm Password</label>
+                <input type="password" class="form-control" [(ngModel)]="addForm.confirmPassword">
+            </div>
+        </div>
+        <div class="modal-footer-custom">
+            <button class="btn btn-light" (click)="closeAddModal()">Cancel</button>
+            <button class="btn btn-primary" (click)="submitAddEmployee()">Submit</button>
+        </div>
+    </div>
+</div>
+}
+
+<!-- ===================== VIEW / EDIT / DELETE MODALS ===================== -->
+
+<!-- ===================== VIEW EMPLOYEE MODAL ===================== -->
+@if (showViewModal() && selectedEmployee()) {
+<div class="modal-overlay show" (click)="closeViewModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+        <div class="modal-header-custom">
+            <h5>Employee Details</h5>
+            <button class="modal-close-btn" (click)="closeViewModal()">&times;</button>
+        </div>
+
+        <div class="modal-body-custom">
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Employee ID</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.id }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Full Name</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.fullName }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Email</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.email }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Phone</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.phone }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Branch</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.branchName }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Service</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.serviceName }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Counter Number</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.counterNumber }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Status</span>
+                <span class="fw-medium small">{{ getStatusText(selectedEmployee()!.status) }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Last Login</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.lastLogin }}</span>
+            </div>
+            <div class="info-row d-flex justify-content-between mb-2">
+                <span class="text-secondary small">Member Since</span>
+                <span class="fw-medium small">{{ selectedEmployee()!.memberSince }}</span>
+            </div>
+        </div>
+
+        <div class="modal-footer-custom justify-content-center">
+            <button class="btn btn-light px-4" (click)="closeViewModal()">Close</button>
+        </div>
+    </div>
+</div>
+}
+
+<!-- ===================== EDIT EMPLOYEE MODAL ===================== -->
+@if (showEditModal() && selectedEmployee()) {
+<div class="modal-overlay show" (click)="closeEditModal()">
+    <div class="modal-box" (click)="$event.stopPropagation()">
+        <div class="modal-header-custom">
+            <h5>Edit Employee</h5>
+            <button class="modal-close-btn" (click)="closeEditModal()">&times;</button>
+        </div>
+
+        <div class="modal-body-custom">
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Full Name</label>
+                <input type="text" class="form-control" [(ngModel)]="editForm.fullName">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="editForm.email">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Phone Number</label>
+                <input type="text" class="form-control" [(ngModel)]="editForm.phone">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Branch</label>
+                <select class="form-select" [(ngModel)]="editForm.branchId" (ngModelChange)="onEditBranchChange()">
+                    <option [ngValue]="null">Select Branch</option>
+                    @for (branch of branches(); track branch.id) {
+                    <option [ngValue]="branch.id">{{ branch.name }}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Service</label>
+                <select class="form-select" [(ngModel)]="editForm.serviceId" [disabled]="!editForm.branchId">
+                    <option [ngValue]="null">Select Service</option>
+                    @for (service of services(); track service.id) {
+                    <option [ngValue]="service.id">{{ service.name }}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Counter Number</label>
+                <input type="number" class="form-control" [(ngModel)]="editForm.counterNumber">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-medium">New Password <small
+                        class="text-muted">(optional)</small></label>
+                <input type="password" class="form-control" [(ngModel)]="editForm.newPassword">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-medium">Confirm New Password</label>
+                <input type="password" class="form-control" [(ngModel)]="editForm.confirmNewPassword">
+            </div>
+        </div>
+
+        <div class="modal-footer-custom">
+            <button class="btn btn-light" (click)="closeEditModal()">Cancel</button>
+            <button class="btn btn-primary" (click)="submitEditEmployee()">Save Changes</button>
+        </div>
+    </div>
+</div>
+}
+
+<!-- ===================== DELETE CONFIRMATION MODAL ===================== -->
+@if (showDeleteModal() && employeeToDelete()) {
+<div class="modal-overlay show" (click)="closeDeleteModal()">
+    <div class="modal-box" style="max-width: 420px" (click)="$event.stopPropagation()">
+        <div class="modal-header-custom">
+            <h5>Confirm Delete</h5>
+            <button class="modal-close-btn" (click)="closeDeleteModal()">&times;</button>
+        </div>
+        <div class="modal-body-custom">
+            <p>Are you sure you want to delete <strong>{{ employeeToDelete()!.fullName }}</strong>?</p>
+            <p class="text-muted small mb-0">This action cannot be undone. The employee will no longer be able to login.
+            </p>
+        </div>
+        <div class="modal-footer-custom">
+            <button class="btn btn-light" (click)="closeDeleteModal()">Cancel</button>
+            <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+        </div>
+    </div>
+</div>
+}

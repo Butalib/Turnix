@@ -7,11 +7,11 @@ import { Employee } from './employee/employee';
 
 @NgModule({
   declarations: [
-    Employee
+
   ],
   imports: [
     CommonModule,
-    EmployeeRoutingModule
+    EmployeeRoutingModule,Employee
   ]
 })
 export class EmployeeModule { }
