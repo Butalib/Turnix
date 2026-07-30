@@ -9,7 +9,7 @@
     </div>
     <nav class="top-nav__links">
       <a href="#">Home</a>
-      <a href="#how-it-works">How It Works</a>
+      <a (click)="scrollToHowItWorks()">How It Works</a>
       <a href="#">Services</a>
       <a href="#">FAQ</a>
     </nav>
@@ -25,13 +25,13 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero__copy">
-      <h1 class="hero__eyebrow">Join the Queue Before You Arrive</h1>
+      <h1 class="hero__eyebrow">Join the Queue Before you Arrive</h1>
       <p class="hero__lede">
         Reserve your queue remotely, monitor your waiting time in real-time, and arrive only when it's your turn.
       </p>
       <div class="hero__actions">
         <a (click)="scrollToForm()" class="btn btn--primary">Join Queue</a>
-        <a href="#how-it-works" class="btn btn--outline">How It Works</a>
+        <a (click)="scrollToHowItWorks()" class="btn btn--outline">How It Works</a>
       </div>
     </div>
 
@@ -46,11 +46,11 @@
         <div class="dashboard-mock__body">
           <div class="dashboard-mock__stats">
             <div class="dashboard-mock__stat">
-              <strong>[ON_TIME_RATE]</strong>
+              <strong>98%</strong>
               <span>On-time</span>
             </div>
             <div class="dashboard-mock__stat">
-              <strong>[SATISFACTION_RATE]</strong>
+              <strong>4.9/5</strong>
               <span>Satisfaction</span>
             </div>
           </div>
@@ -134,18 +134,19 @@
               <!-- يفضل استخدام formControlName إذا كنت تستخدم Reactive Forms -->
               <select id="branch" name="branch" required>
                 <option value="" selected disabled>Select Branch...</option>
-                <option value="branch-placeholder-1">fanta</option>
-                <option value="branch-placeholder-2">cairo</option>
-                <option value="branch-placeholder-3">giza</option>
+                <option value="Alexandria">Alexandria</option>
+                <option value="Cairo">Cairo</option>
+                <option value="Giza">Giza</option>
+                <option value="Mansoura">Mansoura</option>
               </select>
             </div>
             <div class="form-field">
               <label for="service">Service</label>
               <select id="service" name="service" required>
                 <option value="" selected disabled>Select Service...</option>
-                <option value="service-placeholder-1">masr</option>
-                <option value="service-placeholder-2">cairo</option>
-                <option value="service-placeholder-3">vice</option>
+                <option value="Request Certificate">Request Certificate</option>
+                <option value="Request Stamp">Request Stamp</option>
+                <option value="Customer Service">Customer Service</option>
               </select>
             </div>
           </div>
@@ -158,7 +159,7 @@
             <div class="form-field">
               <label for="phone">Phone Number</label>
               <!-- التعديل اللي إنت عملته لـ tel ممتاز جداً للـ UX على الموبايل -->
-              <input type="tel" id="phone" name="phone" placeholder="+20 10 00000000" required>
+              <input type="tel" id="phone" name="phone" placeholder="010 00000000" required>
             </div>
           </div>
 
@@ -170,18 +171,18 @@
         <div class="ticket-panel">
           <div class="ticket-card">
             <div class="ticket-card__label">YOUR TICKET</div>
-            <div class="ticket-card__number">[TICKET_NUMBER]</div>
+            <div class="ticket-card__number">A102</div>
             <div class="ticket-card__meta">
               <div class="ticket-card__meta-item">
                 <span>Position</span>
-                <strong>[QUEUE_POSITION]</strong>
+                <strong>3</strong>
               </div>
               <div class="ticket-card__meta-item">
                 <span>Est. Wait</span>
-                <strong>[ESTIMATED_WAIT_TIME]</strong>
+                <strong>12 min</strong>
               </div>
             </div>
-            <span class="ticket-card__status">[TICKET_STATUS]</span>
+            <span class="ticket-card__status">Confirmed</span>
           </div>
 
           <div class="status-card">
@@ -195,17 +196,17 @@
             <div class="status-card__row">
               <div>
                 <span class="status-card__row-label">Now Serving</span>
-                <span class="status-card__row-value">[NOW_SERVING_TICKET]</span>
+                <span class="status-card__row-value">A098</span>
               </div>
               <div>
                 <span class="status-card__row-label">Ahead</span>
-                <span class="status-card__row-value status-card__row-value--muted">[AHEAD_COUNT]</span>
+                <span class="status-card__row-value status-card__row-value--muted">2</span>
               </div>
             </div>
             <!-- <div class="progress-bar">
                 <div class="progress-bar__fill"></div>
               </div> -->
-            <p class="status-card__footnote">[REMAINING_TIME]</p>
+            <p class="status-card__footnote">Estimated remaining time: 8 minutes</p>
           </div>
         </div>
       </div>
@@ -229,7 +230,7 @@
     <div class="footer-col">
       <div class="footer-col__title">Product</div>
       <ul>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a (click)="scrollToHowItWorks()">How It Works</a></li>
         <li><a href="#">Services</a></li>
       </ul>
     </div>

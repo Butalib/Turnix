@@ -21,9 +21,16 @@ export class LandingPage {
 
   // دالة عشان تعمل سكرول لحد الفورم
   scrollToForm() {
-    const formSection = document.getElementById('queue-form-section');
+    const formSection = document.getElementById('reserve');
     if (formSection) {
       formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  scrollToHowItWorks() {
+    const howItWorksSection = document.getElementById('how-it-works');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
