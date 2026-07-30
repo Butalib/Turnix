@@ -8,7 +8,8 @@
         </div>
         <div class="d-flex gap-3">
             <div class="badge bg-light text-dark p-2 border">
-              <img src="assets/workspace/headee/headercalender.svg" class="icon-calendar" alt="Calendar Icon" width="20" height="20">
+                <img src="assets/workspace/headee/headercalender.svg" class="icon-calendar" alt="Calendar Icon"
+                    width="20" height="20">
                 <!-- ضفنا الـ Date Pipe هنا عشان يخلي شكل التاريخ شيك -->
                 {{ currentDate | date:'MMM d, yyyy | hh:mm a' }}
             </div>
@@ -22,28 +23,32 @@
     <div class="row mb-4">
         <div class="col-md-3">
             <div class="card p-3 shadow-sm">
-                <img src="assets/workspace/kpi/employee.svg" class="icon-waiting" alt="Waiting Icon" width="20" height="20">
+                <img src="assets/workspace/kpi/employee.svg" class="icon-waiting" alt="Waiting Icon" width="20"
+                    height="20">
                 <div class="text-muted small">Waiting</div>
                 <h3 class="fw-bold">{{ stats.waiting }}</h3>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card p-3 shadow-sm">
-                <img src="assets/workspace/kpi/serving.svg" class="icon-serving" alt="Serving Icon" width="20" height="20">
+                <img src="assets/workspace/kpi/serving.svg" class="icon-serving" alt="Serving Icon" width="20"
+                    height="20">
                 <div class="text-muted small">Serving</div>
                 <h3 class="fw-bold">{{ stats.serving }}</h3>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card p-3 shadow-sm">
-                <img src="assets/workspace/kpi/completed.svg" class="icon-completed" alt="Completed Icon" width="20" height="20">
+                <img src="assets/workspace/kpi/completed.svg" class="icon-completed" alt="Completed Icon" width="20"
+                    height="20">
                 <div class="text-muted small">Completed</div>
                 <h3 class="fw-bold">{{ stats.completed }}</h3>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card p-3 shadow-sm">
-                <img src="assets/workspace/kpi/timer.svg" class="icon-avgwait" alt="Average Wait Icon" width="20" height="20">
+                <img src="assets/workspace/kpi/timer.svg" class="icon-avgwait" alt="Average Wait Icon" width="20"
+                    height="20">
                 <div class="text-muted small">Avg Wait</div>
                 <h3 class="fw-bold">{{ stats.avgWait }}</h3>
             </div>
@@ -51,13 +56,30 @@
     </div>
 
     <!-- 3. Current Serving Section (محمي بـ Control Flow) -->
+<!-- 3. Current Serving Section (محمي بـ Control Flow) -->
     @if (currentTicket) {
-        <div class="card shadow-sm mb-4 p-4 border-primary">
-            <div class="d-flex justify-content-between mb-3">
-                <span class="badge bg-success bg-opacity-25 text-success">CALLED</span>
-                <span class="text-muted small">Counter 3 <br> 05:22 elapsed</span>
+        <!-- رجعنا كلاسات الـ card والـ shadow عشان الخلفية البيضا ترجع -->
+        <div class="card shadow-sm mb-4 p-4 border-0">
+            
+            <!-- Header of Current Serving -->
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <!-- هندلة زرار CALLED زي الديزاين: كبسولة، خلفية شفافة، ونقطة خضرا -->
+                    <span class="badge bg-success bg-opacity-10 text-success border border-success-subtle rounded-pill px-3 py-2 mb-3 d-inline-flex align-items-center">
+                        <span class="bg-success rounded-circle me-2" style="width: 6px; height: 6px;"></span>
+                        CALLED
+                    </span>
+                    <!-- الكلمة اللي كانت ناقصة تحت الزرار -->
+                    <div class="text-muted small fw-bold text-uppercase letter-spacing-1">CURRENT SERVING</div>
+                </div>
+                
+                <!-- العداد اللي على اليمين -->
+                <div class="text-end text-muted small">
+                    Counter 3 <br> 05:22 elapsed
+                </div>
             </div>
 
+            <!-- بقية الكارت زي ما هو (الرقم A098 وتفاصيل العميل والزراير) -->
             <div class="row align-items-center mb-4">
                 <!-- Ticket Number Box -->
                 <div class="col-md-6">
@@ -66,50 +88,52 @@
                         <h1 class="display-4 fw-bold text-primary mb-0">{{ currentTicket.number }}</h1>
                     </div>
                 </div>
-                <!-- Customer Info -->
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <small class="text-muted">CUSTOMER</small>
-                            <div class="fw-medium">{{ currentTicket.customerName }}</div>
-                        </div>
-                        <div class="col-6 mb-3">
-                            <small class="text-muted">PHONE</small>
-                            <div class="fw-medium">{{ currentTicket.phone }}</div>
-                        </div>
-                        <div class="col-6">
-                            <small class="text-muted">SERVICES</small>
-                            <div class="fw-medium">{{ currentTicket.service }}</div>
-                        </div>
-                        <div class="col-6">
-                            <small class="text-muted">JOINED AT</small>
-                            <div class="fw-medium">{{ currentTicket.joinedAt }}</div>
-                        </div>
+                <!-- ... كمل باقي كود العميل والزراير من هنا عادي ... -->
+            <!-- Customer Info -->
+            <div class="col-md-6  ">
+                <div class="row ">
+                    <div class="col-6 mb-3">
+                        <small class="text-muted">CUSTOMER</small>
+                        <div class="fw-medium">{{ currentTicket.customerName }}</div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <small class="text-muted">PHONE</small>
+                        <div class="fw-medium">{{ currentTicket.phone }}</div>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted">SERVICES</small>
+                        <div class="fw-medium">{{ currentTicket.service }}</div>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted">JOINED AT</small>
+                        <div class="fw-medium">{{ currentTicket.joinedAt }}</div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Actions -->
-            <div class="d-flex gap-3">
-                <button class="btn btn-outline-danger px-4" (click)="cancelTicket()">Cancel Ticket</button>
-                <button class="btn btn-light px-4 border" (click)="skipCustomer()">Skip Customer</button>
-                <button class="btn btn-primary px-4" (click)="completeCurrentService()">✓ Complete Service</button>
-            </div>
+        <!-- Actions -->
+        <div class="d-flex gap-3">
+            <button class="btn btn-outline-danger px-4" (click)="cancelTicket()">Cancel Ticket</button>
+            <button class="btn btn-light px-4 border" (click)="skipCustomer()">Skip Customer</button>
+            <button class="btn btn-primary px-4" (click)="completeCurrentService()">✓ Complete Service</button>
         </div>
+    </div>
     } @else {
-        <!-- الكارت البديل لما تدوس إلغاء أو مفيش عميل -->
-        <div class="card shadow-sm mb-4 p-5 text-center bg-light border">
-            <div class="text-muted mb-3">
-                <i class="fa-solid fa-users-slash display-4 opacity-50"></i>
-            </div>
-            <h4 class="text-muted fw-normal">No active customer</h4>
-            <p class="text-muted small">Select a customer from the queue below to start serving.</p>
-            <div>
-                <button class="btn btn-primary mt-2 px-4" (click)="callNextInQueue()" [disabled]="waitingQueue.length === 0">
-                    Call Next In Queue
-                </button>
-            </div>
+    <!-- الكارت البديل لما تدوس إلغاء أو مفيش عميل -->
+    <div class="card shadow-sm mb-4 p-5 text-center bg-light border">
+        <div class="text-muted mb-3">
+            <i class="fa-solid fa-users-slash display-4 opacity-50"></i>
         </div>
+        <h4 class="text-muted fw-normal">No active customer</h4>
+        <p class="text-muted small">Select a customer from the queue below to start serving.</p>
+        <div>
+            <button class="btn btn-primary mt-2 px-4" (click)="callNextInQueue()"
+                [disabled]="waitingQueue.length === 0">
+                Call Next In Queue
+            </button>
+        </div>
+    </div>
     }
 
     <!-- 4. Queue Table Section -->
@@ -119,7 +143,8 @@
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="d-flex align-items-center gap-2">
                 <div class="bg-primary bg-opacity-10 text-primary p-2 rounded">
-                <img src="assets/workspace/kpi/employee.svg" class="icon-waiting" alt="Waiting Icon" width="20" height="20">
+                    <img src="assets/workspace/kpi/employee.svg" class="icon-waiting" alt="Waiting Icon" width="20"
+                        height="20">
                 </div>
                 <div>
                     <h5 class="mb-0 fw-bold">Waiting Queue</h5>
@@ -130,7 +155,8 @@
             <div class="d-flex gap-2">
                 <div class="input-group">
                     <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass"></i></span>
-                    <input type="text" class="form-control" placeholder="Search by ticket or customer...">
+                    <input type="text" class="form-control" placeholder="Search by ticket or customer..."
+                        [(ngModel)]="searchTerm">
                 </div>
             </div>
         </div>
@@ -151,29 +177,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for (item of waitingQueue; track item.ticket) {
+                    @for (item of filteredQueue; track item.ticket) {
                     <tr>
                         <td class="fw-medium">{{ item.pos }}</td>
                         <td><span class="fw-bold text-primary">{{ item.ticket }}</span></td>
                         <td class="fw-medium">{{ item.customer }}</td>
                         <td>
-                            <span class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle rounded-pill px-3 py-2">
+                            <span
+                                class="badge bg-primary bg-opacity-10 text-primary border border-primary-subtle rounded-pill px-3 py-2">
                                 {{ item.service }}
                             </span>
                         </td>
                         <td>{{ item.joinedAt }}</td>
                         <td><span class="text-primary fw-medium">{{ item.waitTime }}</span></td>
                         <td>
-                            <span class="badge bg-warning bg-opacity-10 text-warning border border-warning-subtle rounded-pill px-3 py-2">
+                            <span
+                                class="badge bg-warning bg-opacity-10 text-warning border border-warning-subtle rounded-pill px-3 py-2">
                                 <i class="fa-regular fa-clock small me-1"></i> {{ item.status }}
                             </span>
                         </td>
                         <td class="text-end">
                             <div class="btn-group gap-2">
-                                <button class="btn btn-sm btn-light border text-secondary"><i class="fa-regular fa-eye"></i></button>
-                                <button class="btn btn-sm btn-primary" (click)="callSpecificCustomer(item.ticket)"><i class="fa-solid fa-phone"></i></button>
+                                <!-- <button class="btn btn-sm btn-light border text-secondary"><i class="fa-regular fa-eye"></i></button> -->
+                                <button class="btn btn-sm btn-primary" (click)="callSpecificCustomer(item.ticket)"><i
+                                        class="fa-solid fa-phone"></i></button>
                                 <!-- ضفتلك فانكشن وهمية تمسح من الطابور مباشرة لو حبيت تشغلها -->
-                                <button class="btn btn-sm btn-outline-danger" (click)="callSpecificCustomer(item.ticket)"><i class="fa-solid fa-forward-step"></i></button> 
+                                <button class="btn btn-sm btn-outline-danger"
+                                    (click)="callSpecificCustomer(item.ticket)"><i
+                                        class="fa-solid fa-forward-step"></i></button>
                             </div>
                         </td>
                     </tr>
@@ -208,3 +239,5 @@
     </div>
 
 </div>
+
+

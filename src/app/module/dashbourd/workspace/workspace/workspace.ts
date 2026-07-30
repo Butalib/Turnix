@@ -39,7 +39,32 @@ export class Workspace {
   { pos: 2, ticket: 'B042', customer: 'Mike Chen', service: 'Tech Support', joinedAt: '02:14 PM', waitTime: '08m', status: 'Waiting' },
   { pos: 3, ticket: 'A100', customer: 'Emily Davis', service: 'General Inquiry', joinedAt: '02:16 PM', waitTime: '06m', status: 'Waiting' },
   { pos: 4, ticket: 'A101', customer: 'David Wilson', service: 'Billing', joinedAt: '02:18 PM', waitTime: '04m', status: 'Waiting' },
+  { pos: 5, ticket: 'B043', customer: 'Sophia Martinez', service: 'Returns', joinedAt: '02:20 PM', waitTime: '02m', status: 'Waiting' },
+  {pos: 6, ticket: 'A103', customer: 'James Brown', service: 'Tech Support', joinedAt: '02:22 PM', waitTime: '00m', status: 'Waiting' },
+  {pos: 7, ticket: 'A1032', customer: 'James Brown', service: 'Tech Support', joinedAt: '02:22 PM', waitTime: '00m', status: 'Waiting' },
+  {pos: 8, ticket: 'A1023', customer: 'James Brown', service: 'Tech Support', joinedAt: '02:22 PM', waitTime: '00m', status: 'Waiting' },
+  {pos: 9, ticket: 'A3102', customer: 'James Brown', service: 'Tech Support', joinedAt: '02:22 PM', waitTime: '00m', status: 'Waiting' },
 ];
+
+// 1. متغير يمسك الكلمة اللي اليوزر بيكتبها
+searchTerm: string = '';
+
+// 2. الفانكشن الذكية اللي بترجع الداتا المتفلترة
+get filteredQueue() {
+  // لو مربع البحث فاضي، رجع الطابور كله زي ما هو
+  if (!this.searchTerm) {
+    return this.waitingQueue;
+  }
+
+  // لو فيه كلمة، حولها لسمول عشان البحث ميبقاش حساس لحالة الأحرف (Case-insensitive)
+  const term = this.searchTerm.toLowerCase();
+
+  // فلتر الطابور الأصلي
+  return this.waitingQueue.filter(item => 
+    item.customer.toLowerCase().includes(term) || // ابحث في اسم العميل
+    item.ticket.toLowerCase().includes(term)      // أو ابحث في رقم التذكرة
+  );
+}
 
 
 // الفانكشن الأولى: لما الموظف يخلص العميل الحالي

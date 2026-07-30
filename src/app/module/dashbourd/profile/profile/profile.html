@@ -1,0 +1,146 @@
+<div class="profile-container p-4">
+
+  <!-- Header -->
+  <div class="mb-4">
+    <h2 class="fw-bold mb-1">My Profile</h2>
+    <p class="text-muted small">View and manage your account information.</p>
+  </div>
+
+  <!-- Row 1: Summary (Left) & Personal Info (Right) -->
+  <div class="row g-4 mb-4">
+    
+    <!-- Left Col: Profile Summary Card -->
+    <div class="col-lg-4">
+      <div class="card shadow-sm text-center p-4 h-100">
+        <!-- Profile Picture -->
+        <div class="mb-3">
+          <img [src]="userProfile.avatar" alt="Profile Picture" class="rounded-circle img-thumbnail border-0 shadow-sm" style="width: 120px; height: 120px; object-fit: cover;">
+        </div>
+        
+        <h4 class="fw-bold mb-1">{{ userProfile.fullName }}</h4>
+        <div class="mb-4">
+          <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 fw-medium">
+            {{ userProfile.jobTitle }}
+          </span>
+        </div>
+
+        <hr class="text-muted opacity-25">
+
+        <!-- Contact Info -->
+        <ul class="list-unstyled text-start mt-4 mb-4">
+          <li class="mb-3 d-flex align-items-center text-muted">
+            <i class="fa-regular fa-envelope me-3"></i> {{ userProfile.email }}
+          </li>
+          <li class="mb-3 d-flex align-items-center text-muted">
+            <i class="fa-solid fa-phone me-3"></i> {{ userProfile.phone }}
+          </li>
+          <li class="d-flex align-items-start text-muted">
+            <i class="fa-regular fa-calendar mt-1 me-3"></i> 
+            <span>Member Since: <br>{{ userProfile.memberSince }}</span>
+          </li>
+        </ul>
+
+        <!-- Change Picture Button -->
+        <button class="btn btn-outline-secondary w-100 mt-auto" (click)="triggerImageUpload()">
+          <i class="fa-solid fa-camera me-2"></i> Change Profile Picture
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Col: Personal Information Card -->
+    <div class="col-lg-8">
+      <div class="card shadow-sm h-100 d-flex flex-column">
+        
+        <div class="p-4 border-bottom">
+          <h5 class="fw-bold mb-0">Personal Information</h5>
+        </div>
+
+        <div class="p-4 flex-grow-1">
+          <div class="row g-3 mb-4">
+            <!-- Full Name -->
+            <div class="col-md-6">
+              <label class="form-label small text-muted fw-medium">Full Name</label>
+              <input type="text" class="form-control bg-light" [(ngModel)]="userProfile.fullName">
+            </div>
+            <!-- Job Title -->
+            <div class="col-md-6">
+              <label class="form-label small text-muted fw-medium">Job Title</label>
+              <input type="text" class="form-control bg-light" [(ngModel)]="userProfile.jobTitle">
+            </div>
+            
+            <!-- Email Address (Read-only with icon) -->
+            <div class="col-md-6">
+              <label class="form-label small text-muted fw-medium">Email Address <span class="text-black-50" style="font-size: 0.75rem;">(Read-only)</span></label>
+              <div class="input-group">
+                <span class="input-group-text bg-light text-muted border-end-0">
+                  <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="email" class="form-control bg-light border-start-0 ps-0 text-muted" [value]="userProfile.email" readonly>
+              </div>
+            </div>
+            <!-- Phone Number -->
+            <div class="col-md-6">
+              <label class="form-label small text-muted fw-medium">Phone Number</label>
+              <input type="text" class="form-control bg-light" [(ngModel)]="userProfile.phone">
+            </div>
+          </div>
+
+          <hr class="text-muted opacity-25 my-4">
+
+          <!-- Account Details Box -->
+          <h6 class="fw-bold mb-3">Account Details</h6>
+          <div class="bg-light bg-opacity-50 rounded p-4 d-flex justify-content-between">
+            <div>
+              <div class="small text-muted mb-1">Employee ID</div>
+              <div class="fw-medium">{{ userProfile.employeeId }}</div>
+            </div>
+            <div>
+              <div class="small text-muted mb-1">Role Level</div>
+              <div class="fw-medium">{{ userProfile.roleLevel }}</div>
+            </div>
+            <div>
+              <div class="small text-muted mb-1">Last Login</div>
+              <div class="fw-medium">{{ userProfile.lastLogin }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Save Changes Button Footer -->
+        <div class="p-4 border-top bg-light bg-opacity-25 text-end mt-auto">
+          <button class="btn btn-primary px-4" (click)="saveProfileChanges()">Save Changes</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Row 2: Security Card -->
+  <div class="card shadow-sm mb-4">
+    <div class="p-4 border-bottom">
+      <h5 class="fw-bold mb-1">Security</h5>
+      <p class="text-muted small mb-0">Update your account password and security preferences.</p>
+    </div>
+    
+    <div class="p-4">
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-medium">Current Password</label>
+          <input type="password" class="form-control bg-light" placeholder="••••••••" [(ngModel)]="securityData.currentPassword">
+        </div>
+      </div>
+      <div class="row g-3 mb-4">
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-medium">New Password</label>
+          <input type="password" class="form-control bg-light" placeholder="••••••••" [(ngModel)]="securityData.newPassword">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label small text-muted fw-medium">Confirm Password</label>
+          <input type="password" class="form-control bg-light" placeholder="••••••••" [(ngModel)]="securityData.confirmPassword">
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" (click)="updatePassword()">Update Password</button>
+    </div>
+  </div>
+
+</div>

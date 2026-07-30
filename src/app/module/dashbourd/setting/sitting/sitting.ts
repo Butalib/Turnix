@@ -16,10 +16,8 @@ export class Sitting {
   };
 
   saveChanges() {
-    // هنا بنجمع الداتا ونبعتها للباك إند
     console.log('Saving new settings...', this.systemSettings);
     
-    // رسالة مؤقتة للتأكيد (لحد ما توصلها بالـ API)
     alert(`Changes Saved! New service time is ${this.systemSettings.defaultServiceTime} Minutes.`);
   }
 }
