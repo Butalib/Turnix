@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Employee } from './module/dashbourd/employee/employee/employee';
+import { ReportsComponent } from './module/dashbourd/report/report/report';
 
 
 const routes: Routes = [
+
+
   {
     path: '',
     loadChildren: () => import('./module/public/public-module').then(m => m.PublicModule)
