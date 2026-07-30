@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReportsComponent } from './report/report';
 
 const routes: Routes = [
-  {path : '', component : ReportsComponent}
+  {path : '', redirectTo : 'report', pathMatch : 'full'},
+  {path : 'report', component : ReportsComponent}
 ];
 
 @NgModule({

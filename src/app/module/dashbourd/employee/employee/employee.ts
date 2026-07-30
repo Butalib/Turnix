@@ -138,10 +138,42 @@ selectedStatus = signal('all');
       memberSince: 'Mar 2024',
       avatar: 'MC',
       color: 'purple'
+    },
+    {
+      id: 3,
+      fullName: 'Aisha Patel',
+      email: 'aisha.p@turnix.com',
+      phone: '+1 (555) 456-7890',
+      branchId: 3,
+      branchName: 'Alexandria Branch',
+      serviceId: 3,
+      serviceName: 'Radiology',
+      counterNumber: 2,
+      status: 'online',
+      lastLogin: 'Today, 10:45 AM',
+      memberSince: 'Feb 2024',
+      avatar: 'AP',
+      color: 'green'
+    },
+    {
+      id: 4,
+      fullName: 'David Kim',
+      email: 'david.k@turnix.com',
+      phone: '+1 (555) 321-0987',
+      branchId: 2,
+      branchName: 'Cairo Branch',
+      serviceId: 2,
+      serviceName: 'General Medicine',
+      counterNumber: 1,
+      status: 'offline',
+      lastLogin: 'Yesterday, 02:15 PM',
+      memberSince: 'Apr 2024',
+      avatar: 'DK',
+      color: 'orange'
     }
   ]);
 
-  // this.loadEmployees(); // هتشغليها لما الباك يكون جاهز
+  // this.loadEmployees(); // هتشكليها لما الباك يكون جاهز
   // this.loadBranches();
 }
 

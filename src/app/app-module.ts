@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
-import { Layout } from './layout/main-layout/layout/layout';
+import { Layout } from './module/dashbourd/layout/layout';
 
 @NgModule({
   declarations: [

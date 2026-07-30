@@ -1,0 +1,139 @@
+body {
+    box-sizing: border-box;
+    background-color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+     height: 100%;
+}
+svg{
+    cursor: pointer;
+}
+
+:host {
+  display: block;
+  height: 100%;
+  min-height: 100vh;
+}
+
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;   
+    height: 100%;
+}
+
+.sidenav {
+    display: block;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+}
+
+.logo {
+    width: 200px;
+    margin-left: 5px;
+}
+
+.logo img {
+    width: 160px;
+}
+
+.slidenav-bt img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.slidenav-bt {
+    width: 200px;
+}
+
+.profile-bt {
+  margin-top: auto !important;
+  margin-bottom: 25px;
+}
+
+.slidenav-bt button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 180px;
+    height: 40px;
+    margin: 5px;
+    border-radius: 15px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.slidenav-bt button:hover {
+    background-color: #f1f5f9;
+    color: rgba(23, 31, 44, 0.836);
+}
+
+.slidenav-bt p {
+    margin-top: 12px;
+}
+
+.profile-bt {
+    margin-top: 300px;
+}
+
+.profile-bt button {
+    height: 60px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.profile-bt button:hover {
+    background-color: #f1f5f9;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.info p {
+    margin: 0;
+}
+
+.employee-page {
+    width: 1100px;
+}
+
+.logo-emp img {
+    width: 90px;
+}
+
+.logo-emp {
+    margin-left: 0px;
+}
+
+.nav-icons button {
+    border: none;
+    margin: 3px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-icons button:hover {
+    background-color: #f1f5f9;
+}
+
+.nav-icons img {
+    border: none;
+    height: 33px;
+}
+
+.nav-icons svg {
+    border: none;
+    height: 22px;
+    width: 34px;
+}

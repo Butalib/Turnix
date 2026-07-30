@@ -1,0 +1,70 @@
+<!-- الهيكل الخارجي اللي شايل الصفحة كلها -->
+<div class="d-flex" style="height: 100vh; overflow: hidden; background-color: #f8f9fc;">
+
+    <div class="sidenav">
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="logo" />
+        </div>
+        <div class="workspace-bt slidenav-bt">
+            <button routerLink="/dashboard/Workspace"
+                    routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}" >
+                <img src="assets/images/workspace.png" alt="workspace">
+                <a class="nav-link d-flex align-items-center" >
+                    <span> Workspace</span>
+                </a> </button>
+        </div>
+        <div class="employee-bt slidenav-bt">
+            <button routerLink="/dashboard/employee"
+                    routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">
+                <img src="assets/images/employee.png" alt="employee">
+                <a class="nav-link d-flex align-items-center" routerLink="/dashboard/employee"
+                    routerLinkActive="active-tab">
+                    <span>Employees</span>
+                </a>
+            </button>
+        </div>
+        <div class="report-bt slidenav-bt">
+            <button routerLink="/dashboard/report"
+                    routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">
+                <img src="assets/images/reports.png" alt="reports">
+                <a class="nav-link d-flex align-items-center" routerLink="/dashboard/report"
+                    routerLinkActive="active-tab">
+                    <span>Reports</span>
+                </a> 
+            </button>
+        </div>
+        <div class="setting-bt slidenav-bt">
+            <button routerLink="/dashboard/setting"
+                    routerLinkActive="active-tab" [routerLinkActiveOptions]="{exact: true}">
+                <img src="assets/images/setting.png" alt="setting">
+
+                <a class="nav-link d-flex align-items-center" routerLink="/dashboard/setting"
+                    routerLinkActive="active-tab">
+                    <span>Settings</span>
+                </a>
+            </button>
+        </div>
+        <div class="profile-bt slidenav-bt" routerLink="/dashboard/profile" routerLinkActive="active-tab">
+            <button>
+                <img src="assets/images/profile.png" alt="profile">
+                <div class="info">
+                    <p class="text-primary">   Sarah Jenkkins</p>
+                    <p>Administrator</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!-- الجزء اليمين اللي شايل الهيدر والمحتوى -->
+    <div class="d-flex flex-column flex-grow-1" style="overflow-y: auto;">
+
+        <!-- الهيدر ثابت فوق -->
+        <!-- <app-navbar></app-navbar> -->
+
+        <!-- هنا بقى السحر: المحتوى اللي بيتغير (Workspace, Employees, etc) -->
+        <div class="p-4">
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</div>
